@@ -1,0 +1,15 @@
+{% extends 'djens/base.html' %}
+{% block content %}
+<h1> {{ personne.prenom_usuel }} {{ personne.nom}}</h1>
+<ul>
+    {% if personne.nom_usage %}
+    <li>{{ personne.nom_usage}}</li>
+    {% endif %}
+    {% if personne.surnom %}
+    <li>{{ personne.surnom}}</li>
+     {% endif %}
+    <li>{{ personne.date_naissance}}</li>
+
+</ul>
+<a href="{% url 'liste_personnes' %}">Retour à la liste</a>
+{% endblock %}

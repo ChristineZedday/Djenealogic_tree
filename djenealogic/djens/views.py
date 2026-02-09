@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from djens.models import Individu
+from djens.models import Personne
 
 
 # Create your views here.
@@ -8,9 +8,10 @@ from djens.models import Individu
 def home(request):
     return render(request, 'djens/home.html')
 
-def individu(request):
-    return render(request, 'djens/individu.html')
+def personne(request,personne_id):
+    personne = Personne.objects.get(id=personne_id)
+    return render(request, 'djens/personne.html', {'personne': personne})
 
-def individus(request):
-    individus = Individu.objects.all()
-    return render(request, 'djens/individus.html', {'individus' : individus})
+def personnes(request):
+    personnes = Personne.objects.all()
+    return render(request, 'djens/personnes.html', {'personnes' : personnes})

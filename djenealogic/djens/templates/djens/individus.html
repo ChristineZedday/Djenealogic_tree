@@ -1,9 +1,0 @@
-{% extends 'djens/base.html' %}
-{% block content %}
-    <h1>Liste des individus en base de données</h1>
-    <ul>
-    {% for individu in individus %}
-        <li>{{individu.prenoms}} {{individu.nom}} {{individu.usage}}</li>
-    {% endfor %}
-    </ul>
-{% endblock %}

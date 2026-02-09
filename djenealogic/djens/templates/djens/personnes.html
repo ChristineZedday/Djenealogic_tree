@@ -1,0 +1,9 @@
+{% extends 'djens/base.html' %}
+{% block content %}
+    <h1>Liste des personnes en base de données</h1>
+    <ul>
+    {% for personne in personnes %}
+        <li><a href ="{% url 'detail_personne' personne.id %}">{{personne.prenom_usuel}} {{personne.nom}} {% if personne.nom_usage %}{{personne.nom_usage}}{% endif %}</a></li>
+    {% endfor %}
+    </ul>
+{% endblock %}
