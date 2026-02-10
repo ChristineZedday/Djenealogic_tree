@@ -1,1 +1,4 @@
-* {background: rgb(252, 168, 129);}
+* {
+    background: rgb(252, 168, 129);
+    .errorlist { margin-bottom: -10px }
+}
