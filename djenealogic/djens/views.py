@@ -1,8 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from djens.models import Personne
+from djens.models import Personne, Cheval
 from djens.forms import ContactUsForm
 from django.core.mail import send_mail
+from django.shortcuts import redirect  # ajoutez cet import
 
 
 # Create your views here.
@@ -17,6 +18,14 @@ def personne(request,personne_id):
 def personnes(request):
     personnes = Personne.objects.all()
     return render(request, 'djens/personnes.html', {'personnes' : personnes})
+
+def cheval(request,cheval_id):
+    cheval = Cheval.objects.get(id=cheval_id)
+    return render(request, 'djens/cheval.html', {'cheval': cheval})
+
+def chevaux(request):
+    chevaux = Cheval.objects.all()
+    return render(request, 'djens/chevaux.html', {'chevaux' : chevaux})
 
 def contact(request):
      
@@ -39,6 +48,7 @@ def contact(request):
             recipient_list=['chrizedday@free.fr'],
 
         )
+            return redirect('mail_sent')
 
      else:
 
