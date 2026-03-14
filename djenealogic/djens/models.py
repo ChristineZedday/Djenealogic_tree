@@ -30,11 +30,13 @@ class Race(models.Model):
     
 class Cheval(Individu):
     affixe = models.fields.CharField(max_length=15, blank= True, null=True)
+    affixe_avant = models.fields.BooleanField(blank= True, null = True)
     robe = models.fields.CharField(max_length=200, blank= True, null=True)
     race = models.ForeignKey(Race, null=True, on_delete=models.SET_NULL)
     def __str__(self):
+        chaine =  f'{self.affixe} {self.nom}' if self.affixe_avant else f'{self.nom} {self.affixe}' 
 
-        return f'{self.nom} {self.affixe}'
+        return chaine
     
 
 
